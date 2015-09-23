@@ -24,6 +24,10 @@ Features of 6/11z as compared to 6/11:
   names. This makes the game run very slightly faster, but you must
   then define an "article" property for each object that begin with
   a vowel.
+- Define the constant INTERRUPT_MULTI_ACTION to permit interrupting
+  multiple-object actions (such as "get all"). Set the global multiflag
+  to false in an action routine to do this. (For single-object actions,
+  multiflag is already false, so setting it this way has no effect.)
 - That's all!
 
 

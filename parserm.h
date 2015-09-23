@@ -4681,6 +4681,9 @@ Object  InformLibrary "(Inform Library)"
                         L__M(##Miscellany, 51);
                         break;
                     }
+                    #ifdef INTERRUPT_MULTI_ACTION;
+                    if (~~multiflag) break;
+                    #endif; ! INTERRUPT_MULTI_ACTION;
                     l = multiple_object-->k;
                     PronounNotice(l);
                     print (name) l, ": ";
