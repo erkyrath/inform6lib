@@ -6267,6 +6267,7 @@ Array StorageForShortName -> 160 + WORDSIZE;
     findout = true;
     #Endif; ! LanguageContractionForms
 
+#ifndef SKIP_MAGIC_ARTICLES;
     #Ifdef TARGET_ZCODE;
     if (standard_interpreter ~= 0 && findout) {
         StorageForShortName-->0 = 160;
@@ -6284,6 +6285,7 @@ Array StorageForShortName -> 160 + WORDSIZE;
         acode = acode + 3*LanguageContraction(StorageForShortName);
     }
     #Endif; ! TARGET_
+#endif; ! SKIP_MAGIC_ARTICLES
 
     Cap (artform-->acode, ~~capitalise); ! print article
     if (pluralise) return;

@@ -19,6 +19,11 @@ Features of 6/11z as compared to 6/11:
 
 - Define the constant SERIAL_COMMAS to get the American-style (Oxford)
   comma in lists.
+- Define the constant SKIP_MAGIC_ARTICLES to suppress Inform's
+  auto-detection of whether "a" or "an" is appropriate for object
+  names. This makes the game run very slightly faster, but you must
+  then define an "article" property for each object that begin with
+  a vowel.
 - That's all!
 
 
