@@ -1,5 +1,5 @@
 This is version 6/11z of the Inform library,
-Copyright Graham Nelson 1993-2004, Andrew Plotkin 2004
+Copyright Graham Nelson 1993-2004, Andrew Plotkin 2004-2006
 Full release notes and instructions are available at
 http://www.inform-fiction.org
 and
@@ -22,7 +22,7 @@ Features of 6/11z as compared to 6/11:
 - Define the constant SKIP_MAGIC_ARTICLES to suppress Inform's
   auto-detection of whether "a" or "an" is appropriate for object
   names. This makes the game run very slightly faster, but you must
-  then define an "article" property for each object that begin with
+  then define an "article" property for each object that begins with
   a vowel.
 - Define the constant INTERRUPT_MULTI_ACTION to permit interrupting
   multiple-object actions (such as "get all"). Set the global multiflag
@@ -34,7 +34,16 @@ Features of 6/11z as compared to 6/11:
   deadflag to 0, and returns. The game will resume after the fatal 
   action. (This is distinct from the UNDO response, which undoes the
   fatal turn.)
-- That's all!
+
+Note that these features must be activated by defining the appropriate
+constant. Without these constants, 6/11z is exactly the same as 6/11.
+
+The 6/11z branch is not under active development. It contains only the
+handful of features that I implemented for _The Dreamhold_ in 2006.
+(Dreamhold used the 6/10 library; I have ported the features forward to
+6/11.) 6/11z does not fix any of the outstanding 6/11 bugs, nor will it.
+For bug fixes and future updates, see David Griffith's 6/12 repository
+(in progress).
 
 
 The Inform 6 Library is licensed under either
