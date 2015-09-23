@@ -1,6 +1,28 @@
-This is version 6/11 of the Inform library,
-Copyright Graham Nelson 1993-2004
+This is version 6/11z of the Inform library,
+Copyright Graham Nelson 1993-2004, Andrew Plotkin 2004
 Full release notes and instructions are available at
 http://www.inform-fiction.org
 and
 http://www.ifarchive.org/indexes/if-archiveXinfocomXcompilersXinform6.html
+
+The Git repository for the Inform library is at
+  https://github.com/DavidGriffith/inform6lib
+The repository for this branch is at
+  https://github.com/erkyrath/inform6lib/tree/i6lib-611z
+
+This branch (labelled "6/11z") is a *very minor* update of Graham's
+6/11 branch (released in 2004). I (Zarf) am releasing it for the sake of
+history; I've had it sitting in my source directory for a decade. Might
+as well get in on GitHub.
+
+Features of 6/11z as compared to 6/11:
+
+- Define the constant SERIAL_COMMAS to get the American-style (Oxford)
+  comma in lists.
+- That's all!
+
+
+The Inform 6 Library is licensed under either
+1) The traditional Inform license as described by the DM4, or
+2) The Artistic License 2.0 (see ARTISTIC).
+
