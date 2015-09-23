@@ -10,6 +10,11 @@ The Git repository for the Inform library is at
 The repository for this branch is at
   https://github.com/erkyrath/inform6lib/tree/i6lib-611z
 
+The Inform 6 Library is licensed under either
+1) The traditional Inform license as described by the DM4, or
+2) The Artistic License 2.0 (see ARTISTIC).
+
+
 This branch (labelled "6/11z") is a *very minor* update of Graham's
 6/11 branch (released in 2004). I (Zarf) am releasing it for the sake of
 history; I've had it sitting in my source directory for a decade. Might
@@ -41,12 +46,10 @@ constant. Without these constants, 6/11z is exactly the same as 6/11.
 The 6/11z branch is not under active development. It contains only the
 handful of features that I implemented for _The Dreamhold_ in 2006.
 (Dreamhold used the 6/10 library; I have ported the features forward to
-6/11.) 6/11z does not fix any of the outstanding 6/11 bugs, nor will it.
-For bug fixes and future updates, see David Griffith's 6/12 repository
-(in progress).
+6/11.) (Except for the USE_PARTINVENT feature. In 6/11, that can be
+better handled by writing an invent property which checks c_style.)
 
-
-The Inform 6 Library is licensed under either
-1) The traditional Inform license as described by the DM4, or
-2) The Artistic License 2.0 (see ARTISTIC).
+6/11z does not fix any of the outstanding 6/11 bugs, nor will it. For
+bug fixes and future updates, see David Griffith's 6/12 repository (in
+progress).
 
