@@ -28,6 +28,12 @@ Features of 6/11z as compared to 6/11:
   multiple-object actions (such as "get all"). Set the global multiflag
   to false in an action routine to do this. (For single-object actions,
   multiflag is already false, so setting it this way has no effect.)
+- Define the constant ALLOW_AFTERGAME_RETRY to permit resurrecting
+  the player from the post-game prompt. Replace the AfterGameOver
+  routine and add an option that prints an appropriate message, sets
+  deadflag to 0, and returns. The game will resume after the fatal 
+  action. (This is distinct from the UNDO response, which undoes the
+  fatal turn.)
 - That's all!
 
 

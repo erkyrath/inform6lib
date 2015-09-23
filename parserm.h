@@ -4741,6 +4741,9 @@ Object  InformLibrary "(Inform Library)"
             ScoreSub();
             DisplayStatus();
             AfterGameOver();
+            #ifdef ALLOW_AFTERGAME_RETRY;
+            if (deadflag==0) jump very__late__error;
+            #endif; ! ALLOW_AFTERGAME_RETRY
 
         ], ! end of 'play' property
 
