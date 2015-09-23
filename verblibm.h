@@ -415,7 +415,7 @@ Constant NOARTICLE_BIT  4096;       ! Print no articles, definite or not
 
       .Omit_WL2;
 
-        if (WriteBeforeEntry(j, depth, -senc) == 1) jump Omit_FL2;
+        if (WriteBeforeEntry(j, depth, 0, senc) == 1) jump Omit_FL2;
         if (sizes_p->i == 1) {
             if (c_style & NOARTICLE_BIT ~= 0) print (name) j;
             else {
@@ -436,7 +436,10 @@ Constant NOARTICLE_BIT  4096;       ! Print no articles, definite or not
       .Omit_EL2;
 
         if (c_style & ENGLISH_BIT ~= 0) {
-            if (senc == 1) print (string) AND__TX;
+            if (senc == 1) {
+                if (i > 2) print (string) AND__TX;
+                else       print (string) AND2__TX;
+            }
             if (senc > 1) print (string) COMMA__TX;
         }
      .Omit_FL2;
@@ -515,7 +518,7 @@ Constant NOARTICLE_BIT  4096;       ! Print no articles, definite or not
 
       .Omit_WL;
 
-        if (WriteBeforeEntry(j, depth, i-senc) == 1) jump Omit_FL;
+        if (WriteBeforeEntry(j, depth, i, senc) == 1) jump Omit_FL;
         if (c_style & NOARTICLE_BIT ~= 0) print (name) j;
         else {
             if (c_style & DEFART_BIT ~= 0) print (the) j; else print (a) j;
@@ -525,7 +528,10 @@ Constant NOARTICLE_BIT  4096;       ! Print no articles, definite or not
       .Omit_EL;
 
         if (c_style & ENGLISH_BIT ~= 0) {
-            if (i == senc-1) print (string) AND__TX;
+            if (i == senc-1) {
+                if (senc > 2) print (string) AND__TX;
+                else          print (string) AND2__TX;
+            }
             if (i < senc-1) print (string) COMMA__TX;
         }
 
@@ -534,7 +540,7 @@ Constant NOARTICLE_BIT  4096;       ! Print no articles, definite or not
     }
 ]; ! end of WriteListR
 
-[ WriteBeforeEntry o depth sentencepos
+[ WriteBeforeEntry o depth ipos sentencepos
     flag;
 
     inventory_stage = 1;
@@ -543,8 +549,11 @@ Constant NOARTICLE_BIT  4096;       ! Print no articles, definite or not
         flag = PrintOrRun(o, invent, 1);
         if (flag) {
             if (c_style & ENGLISH_BIT) {
-                if (sentencepos == -1) print (string) AND__TX;
-                if (sentencepos <  -1) print (string) COMMA__TX;
+                if (ipos == sentencepos-1) {
+                    if (sentencepos > 2) print (string) AND__TX;
+                    else                 print (string) AND2__TX;
+                }
+                if (ipos < sentencepos-1) print (string) COMMA__TX;
             }
             if (c_style & NEWLINE_BIT) new_line;
         }
@@ -580,7 +589,7 @@ Constant NOARTICLE_BIT  4096;       ! Print no articles, definite or not
 
         if (o has container)
             if (o has openable) {
-                if (parenth_flag) print (string) AND__TX;
+                if (parenth_flag) print (string) AND2__TX;
                 else              L__M(##ListMiscellany, 11, o);
                 if (o has open)
                     if (child(o)) L__M(##ListMiscellany, 12, o);
@@ -1227,7 +1236,10 @@ Constant NOARTICLE_BIT  4096;       ! Print no articles, definite or not
     objectloop (i has visited) {
         print (name) i; k++;
         if (k == j) { L__M(##Places, 2); return; }
-        if (k == j-1) print (string) AND__TX;
+        if (k == j-1) {
+            if (j>2)  print (string) AND__TX;
+            else      print (string) AND2__TX;
+        }
         else          print (string) COMMA__TX;
     }
 ];
